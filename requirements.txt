@@ -1,0 +1,19 @@
+# Core LLM Inference
+vllm==0.6.4
+torch==2.4.0
+transformers==4.45.0
+
+# API and Web
+fastapi==0.115.0
+uvicorn==0.30.0
+requests==2.32.3
+aiohttp==3.10.5
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.9.0
+numpy==1.26.4
+
+# Monitoring
+psutil==6.0.0
+nvidia-ml-py==12.560.30
