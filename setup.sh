@@ -14,20 +14,25 @@ fi
 echo "✓ NVIDIA GPU detected:"
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 
-# Create Python virtual environment
+# Install uv if not already installed
 echo ""
-echo "Creating Python virtual environment..."
-python3 -m venv venv
-source venv/bin/activate
+if ! command -v uv &> /dev/null; then
+    echo "Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.cargo/bin:$PATH"
+else
+    echo "✓ uv already installed"
+fi
 
-# Upgrade pip
-echo "Upgrading pip..."
-pip install --upgrade pip
-
-# Install Python dependencies
+# Create Python virtual environment with uv
 echo ""
-echo "Installing Python dependencies..."
-pip install -r requirements.txt
+echo "Creating Python virtual environment with uv..."
+uv venv
+
+# Install Python dependencies with uv
+echo ""
+echo "Installing Python dependencies with uv..."
+uv pip install -r requirements.txt
 
 # Install Ollama
 echo ""

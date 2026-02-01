@@ -6,8 +6,8 @@ After=network.target
 Type=simple
 User=stu
 WorkingDirectory=/home/stu/Github/local_llm_server
-Environment="PATH=/home/stu/Github/local_llm_server/venv/bin:/usr/local/bin:/usr/bin:/bin"
-ExecStart=/home/stu/Github/local_llm_server/venv/bin/python -m vllm.entrypoints.openai.api_server \
+Environment="PATH=/home/stu/Github/local_llm_server/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/stu/Github/local_llm_server/.venv/bin/python -m vllm.entrypoints.openai.api_server \
     --model meta-llama/Llama-3.3-70B-Instruct \
     --quantization awq \
     --host 0.0.0.0 \

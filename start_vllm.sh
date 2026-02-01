@@ -4,7 +4,7 @@ echo "Starting vLLM server on local network..."
 echo "Access at: http://$(hostname -I | awk '{print $1}'):8000"
 
 # Activate virtual environment
-source venv/bin/activate
+source .venv/bin/activate
 
 # Load environment variables
 if [ -f .env ]; then
